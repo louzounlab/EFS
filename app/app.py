@@ -37,13 +37,13 @@ blood_2_blood = {"O": ["A", "B", "AB", "O"],
 
 
 @app.route("/", methods=["GET"])
-@app.route("/home", methods=["GET"])
+@app.route("/Home", methods=["GET"])
 def home():
     delete_old_files()
     return render_template("index.html", result=False)
 
 
-@app.route("/calculate_data", methods=["POST"])
+@app.route("/calculating_data", methods=["POST"])
 def calculate():
     """Calculate the data and return the result"""
     # Get the form data
@@ -244,12 +244,12 @@ def calculate():
     df["cytogene_3.0"] = 1 if cytogene == "cytogene_3.0" else 0
     df["cytogene_4.0"] = 1 if cytogene == "cytogene_4.0" else 0
     df["cytogene_5.0"] = 1 if cytogene == "cytogene_5.0" else 0
-    df["conclas_1.0"] = 1 if condclas == "condclas_1.0" else 0
+    df["condclas_1.0"] = 1 if condclas == "condclas_1.0" else 0
     df["condclas_2.0"] = 1 if condclas == "condclas_2.0" else 0
     df["condclas_3.0"] = 1 if condclas == "condclas_3.0" else 0
     df["racegp_1"] = 1 if racegp == "racegp_1" else 0
     df["racegp_2"] = 1 if racegp == "racegp_2" else 0
-    df["gvprrxgp_1.0"] = 1 if gvhprhrxgp == "gvhprhrxgp_1.0" else 0
+    df["gvhprhrxgp_1.0"] = 1 if gvhprhrxgp == "gvhprhrxgp_1.0" else 0
     df["gvhprhrxgp_2.0"] = 1 if gvhprhrxgp == "gvhprhrxgp_2.0" else 0
     df["gvhprhrxgp_3.0"] = 1 if gvhprhrxgp == "gvhprhrxgp_3.0" else 0
     df["gvhprhrxgp_4.0"] = 1 if gvhprhrxgp == "gvhprhrxgp_4.0" else 0
@@ -283,16 +283,17 @@ def calculate():
     # Save the df to a temporary file
     current_time = time.time()
     created_df_path = f"static/temp_files/{current_time}.csv"
-    df.to_csv(created_df_path)
+    df.to_csv(created_df_path, index=False)
 
     # Predict on the data
     result = predict(created_df_path)
 
     # Save the results in json format
-    with open(f"static/output/{current_time}.json", "w") as file:
+    output_file_path = f"static/output/{current_time}.json"
+    with open(output_file_path, "w") as file:
         json.dump(result, file)
 
-    return render_template("index.html", result=result)
+    return render_template("index.html", result=output_file_path)
 
 
 if __name__ == "__main__":

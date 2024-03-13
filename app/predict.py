@@ -17,7 +17,7 @@ def predict(input_file_path):
 
     for label in ["dead1y", "gvhd1y", "rej1y", "rel1y", "efs1y"]:
         dict_label_res[label] = {}
-        test_data = pd.read_excel(input_file_path)
+        test_data = pd.read_csv(input_file_path)
 
         test_data = test_data.drop(['Unnamed: 0'], axis=1)  # 'pseudoid',
 
