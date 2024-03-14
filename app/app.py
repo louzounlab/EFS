@@ -283,7 +283,7 @@ def calculate():
     # Save the df to a temporary file
     current_time = time.time()
     created_df_path = f"static/temp_files/{current_time}.csv"
-    df.to_csv(created_df_path, index=False) 
+    df.to_csv(created_df_path, index=False)
 
     # Predict on the data
     result = predict(created_df_path)
@@ -294,6 +294,16 @@ def calculate():
         json.dump(result, file)
 
     return render_template("index.html", result=output_file_path)
+
+
+@app.route("/Example", methods=["GET"])
+def example():
+    return render_template("example.html")
+
+
+@app.route("/About", methods=["GET"])
+def about():
+    return render_template("about.html")
 
 
 if __name__ == "__main__":
