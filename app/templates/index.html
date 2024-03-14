@@ -21,106 +21,137 @@
         <br><br>
         <h1>EFS</h1>
     </div>
-    <div class="container text-center">
+    <div class="container">
         <br>
-        <br>
-        <br>
-        <h2>Donors</h2>
-        <div class="row justify-content-evenly margin-rows" style="border: 3px solid white;">
-            <div class="col text-bg-info p-3 margin-sides">
-                <label for="numhires8_1" class="form-label badge text-bg-dark">
-                    Matching at HLA-A,-B,-C,-DRB1:</label>
-                <select id="numhires8_1" name="numhires8_1" class="form-select">
-                    <option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="Match">Match</option>
-                    <option value="Match">Match</option>
-                    <option value="Mismatch">Mismatch</option>
-                </select>
-            </div>
-            <div class="col text-bg-info p-3 margin-sides">
-                <label for="himatchdqb1_1" class="form-label badge text-bg-dark">
-                    Matching at HLA-DQB1:</label>
-                <select id="himatchdqb1_1" name="himatchdqb1_1" class="form-select">
-                    <option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-            </div>
-            <div class="col text-bg-info p-3 margin-sides">
-                <label for="himatchdpb1_1" class="form-label badge text-bg-dark">
-                    Matching at HLA-DQB1:</label>
-                <select id="himatchdpb1_1" name="himatchdpb1_1" class="form-select">
-                    <option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-            </div>
-            <div class="col text-bg-info p-3 margin-sides">
-                <label for="dcmvpr" class="form-label badge text-bg-dark">
-                    Donor CMV serostatus, pre-HCT:</label>
-                <select id="dcmvpr" name="dcmvpr" class="form-select">
-                    <option value="Negative" selected>Negative</option>
-                    <option value="Positive">Positive</option>
-                    <option value="Not tested">Not tested</option>
-                </select>
-            </div>
-            <div class="col text-bg-info p-3 margin-sides">
-                <label for="related" class="form-label badge text-bg-dark">
-                    Donor type:</label>
-                <select id="related" name="related" class="form-select">
-                    <option value="Related" selected>Related</option>
-                    <option value="Unrelated">Unrelated</option>
-                </select>
-            </div>
-
-        </div>
-
-
-        <form action="/calculating_data" method="post" enctype="multipart/form-data" id="file-form" class="row g-3">
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="mdstfaml" class="form-label badge text-bg-dark">MDS transformed to AML:</label>
-                    <select id="mdstfaml" name="mdstfaml" class="form-select">
+        <form action="/calculating_data" method="post" enctype="multipart/form-data" id="file-form">
+            <h2>Donors</h2>
+            <div class="row" style="border: 5px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="numhires8_1" class="form-label badge text-bg-dark">
+                        Matching at HLA-A,-B,-C,-DRB1:</label>
+                    <select id="numhires8_1" name="numhires8_1" class="form-select">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="Match">Match</option>
+                        <option value="Match">Match</option>
+                        <option value="Mismatch">Mismatch</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="himatchdqb1_1" class="form-label badge text-bg-dark">
+                        Matching at HLA-DQB1:</label>
+                    <select id="himatchdqb1_1" name="himatchdqb1_1" class="form-select">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="himatchdpb1_1" class="form-label badge text-bg-dark">
+                        Matching at HLA-DQB1:</label>
+                    <select id="himatchdpb1_1" name="himatchdpb1_1" class="form-select">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="dcmvpr" class="form-label badge text-bg-dark">
+                        Donor CMV serostatus, pre-HCT:</label>
+                    <select id="dcmvpr" name="dcmvpr" class="form-select">
+                        <option value="Negative" selected>Negative</option>
+                        <option value="Positive">Positive</option>
+                        <option value="Not tested">Not tested</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="related" class="form-label badge text-bg-dark">
+                        Donor type:</label>
+                    <select id="related" name="related" class="form-select">
+                        <option value="Related" selected>Related</option>
+                        <option value="Unrelated">Unrelated</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="urdbmpbdage_up" class="form-label badge text-bg-dark">
+                        Donor age:</label>
+                    <input type="number" name="urdbmpbdage_up" id="urdbmpbdage_up" class="form-control">
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="urdbmpbdrace" class="form-label badge text-bg-dark">
+                        Donor race:</label>
+                    <select id="urdbmpbdrace" name="urdbmpbdrace" class="form-select">
+                        <option value="1" selected>Non-hispanic white</option>
+                        <option value="2">Hispanic or non-white</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="bmpbdsex" class="form-label badge text-bg-dark">
+                        Donor sex:</label>
+                    <select id="bmpbdsex" name="bmpbdsex" class="form-select">
+                        <option value="1" selected>Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="dabotype" class="form-label badge text-bg-dark">
+                        Donor ABO type:</label>
+                    <select id="dabotype" name="dabotype" class="form-select">
+                        <option value="AB" selected>AB</option>
+                        <option value="O">O</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="dparity1_up" class="form-label badge text-bg-dark">
+                        Donor parity:</label>
+                    <select id="dparity1_up" name="dparity1_up" class="form-select">
+                        <option value="0" selected>0</option>
+                        <option value="1">1+</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="graftgp" class="form-label badge text-bg-dark">
+                        Graft source:</label>
+                    <select id="graftgp" name="graftgp" class="form-select">
+                        <option value="1" selected>Bone marrow</option>
+                        <option value="2">Peripheral blood</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="DPB1_permissive_v1" class="form-label badge text-bg-dark">
+                        DPB1 permissive:</label>
+                    <select id="DPB1_permissive_v1" name="DPB1_permissive_v1" class="form-select">
                         <option value="0" selected>No</option>
                         <option value="1">Yes</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="amlrxrel" class="form-label badge text-bg-dark">Therapy related AML:</label>
-                    <select id="amlrxrel" name="amlrxrel" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="match_class2" class="form-label badge text-bg-dark">
+                        Matching at HLA-DQA1,-DPA1,-DRBX:</label>
+                    <input type="number" name="match_class2" id="match_class2" class="form-control">
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+            </div>
+            <br>
+            <br>
+            <h2>Patient</h2>
+            <div class="row" style="border: 5px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="sex" class="form-label badge text-bg-dark">Recipient sex:</label>
                     <select id="sex" name="sex" class="form-select">
                         <option value="1" selected>Male</option>
                         <option value="2">Female</option>
                     </select>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="cytogene" class="form-label badge text-bg-dark">Cytogenetic score (ALL):</label>
-                    <select id="cytogene" name="cytogene" class="form-select">
-                        <option value="1.0" selected>Normal</option>
-                        <option value="2.0">Favorable</option>
-                        <option value="3.0">Intermediate</option>
-                        <option value="4.0">Poor</option>
-                        <option value="5.0">Other</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="disease" class="form-label badge text-bg-dark">Disease / indication for
                         transplant:</label>
                     <select id="disease" name="disease" class="form-select">
@@ -146,17 +177,7 @@
                         <option value="1460">MPN</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="mdsrxrel" class="form-label badge text-bg-dark">Therapy related (MDS/MPN):</label>
-                    <select id="mdsrxrel" name="mdsrxrel" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="rcmvpr" class="form-label badge text-bg-dark">Recipient CMV serostatus, pre-HCT:</label>
                     <select id="rcmvpr" name="rcmvpr" class="form-select">
                         <option value="Negative" selected>Negative</option>
@@ -164,7 +185,7 @@
                         <option value="Not tested">Not tested</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="venthxpr" class="form-label badge text-bg-dark">
                         History of mechanical ventilation:</label>
                     <select id="venthxpr" name="venthxpr" class="form-select">
@@ -172,7 +193,7 @@
                         <option value="1">Yes</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="funghxpr" class="form-label badge text-bg-dark">
                         History of proven invasive fungal infection:</label>
                     <select id="funghxpr" name="funghxpr" class="form-select">
@@ -180,10 +201,7 @@
                         <option value="1">Yes</option>
                     </select>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="condclas" class="form-label badge text-bg-dark">
                         Reported planned conditioning intensity:</label>
                     <select id="condclas" name="condclas" class="form-select">
@@ -192,91 +210,17 @@
                         <option value="3.0">RIC</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="indcycle" class="form-label badge text-bg-dark">
-                        Number of induction cycles to achieve CR1 (AML):</label>
-                    <select id="indcycle" name="indcycle" class="form-select">
-                        <option value="1" selected>1</option>
-                        <option value="2">N/A, disease status at HCT not in CR</option>
-                        <option value="3">3+</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="age" class="form-label badge text-bg-dark">
                         Recipient age:</label>
-                    <input type="number" name="age" id="age" required class="form-control" value="47.34870585">
+                    <input type="number" name="age" id="age" class="form-control">
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="indxtx" class="form-label badge text-bg-dark">
                         Interval from diagnosis to transplant, months:</label>
-                    <input type="number" name="indxtx" id="indxtx" required class="form-control" value="23.51904711">
+                    <input type="number" name="indxtx" id="indxtx" class="form-control">
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="cytogeneelnt" class="form-label badge text-bg-dark">
-                        Cytogenetic ELN risk group for AML:</label>
-                    <select id="cytogeneelnt" name="cytogeneelnt" class="form-select">
-                        <option value="1" selected>Normal</option>
-                        <option value="2">Favorable</option>
-                        <option value="3">Intermediate</option>
-                        <option value="4">Poor</option>
-                        <option value="5">APL</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="numhires8_1" class="form-label badge text-bg-dark">
-                        Matching at HLA-A,-B,-C,-DRB1:</label>
-                    <select id="numhires8_1" name="numhires8_1" class="form-select">
-                        <option value="0" selected>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="Match">Match</option>
-                        <option value="Match">Match</option>
-                        <option value="Mismatch">Mismatch</option>
-                    </select>
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="himatchdqb1_1" class="form-label badge text-bg-dark">
-                        Matching at HLA-DQB1:</label>
-                    <select id="himatchdqb1_1" name="himatchdqb1_1" class="form-select">
-                        <option value="0" selected>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="himatchdpb1_1" class="form-label badge text-bg-dark">
-                        Matching at HLA-DQB1:</label>
-                    <select id="himatchdpb1_1" name="himatchdpb1_1" class="form-select">
-                        <option value="0" selected>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="dcmvpr" class="form-label badge text-bg-dark">
-                        Donor CMV serostatus, pre-HCT:</label>
-                    <select id="dcmvpr" name="dcmvpr" class="form-select">
-                        <option value="Negative" selected>Negative</option>
-                        <option value="Positive">Positive</option>
-                        <option value="Not tested">Not tested</option>
-                    </select>
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="racegp" class="form-label badge text-bg-dark">
                         Recipient race:</label>
                     <select id="racegp" name="racegp" class="form-select">
@@ -284,96 +228,12 @@
                         <option value="2">Hispanic or non-white</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="coorgscore" class="form-label badge text-bg-dark">
                         HCT-CI score:</label>
-                    <input type="number" name="coorgscore" id="coorgscore" required class="form-control" value="2">
+                    <input type="number" name="coorgscore" id="coorgscore" class="form-control">
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="philgp" class="form-label badge text-bg-dark">
-                        Ph+ (ALL):</label>
-                    <select id="philgp" name="philgp" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="allsubgp" class="form-label badge text-bg-dark">
-                        ALL immunophenotype:</label>
-                    <select id="allsubgp" name="allsubgp" class="form-select">
-                        <option value="1" selected>T-cell</option>
-                        <option value="2">B-cell</option>
-                        <option value="3">Unspecified</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="ipssrdx" class="form-label badge text-bg-dark">
-                        IPSS-R at diagnosis (MDS):</label>
-                    <select id="ipssrdx" name="ipssrdx" class="form-select">
-                        <option value="1" selected>Very low</option>
-                        <option value="2">Low</option>
-                        <option value="3">Intermediate</option>
-                        <option value="4">High</option>
-                        <option value="5">Very high</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="mdsdist" class="form-label badge text-bg-dark">
-                        Disease risk prior to HCT (MDS):</label>
-                    <select id="mdsdist" name="mdsdist" class="form-select">
-                        <option value="1" selected>Early</option>
-                        <option value="2">Advanced</option>
-                        <option value="3">Other</option>
-                    </select>
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="mdspredisp" class="form-label badge text-bg-dark">
-                        Predisposing condition (MDS/MPN):</label>
-                    <select id="mdspredisp" name="mdspredisp" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="related" class="form-label badge text-bg-dark">
-                        Donor type:</label>
-                    <select id="related" name="related" class="form-select">
-                        <option value="Related" selected>Related</option>
-                        <option value="Unrelated">Unrelated</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="urdbmpbdage_up" class="form-label badge text-bg-dark">
-                        Donor age:</label>
-                    <input type="number" name="urdbmpbdage_up" id="urdbmpbdage_up" required class="form-control"
-                           value="34.81634067">
-                </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="urdbmpbdrace" class="form-label badge text-bg-dark">
-                        Donor race:</label>
-                    <select id="urdbmpbdrace" name="urdbmpbdrace" class="form-select">
-                        <option value="1" selected>Non-hispanic white</option>
-                        <option value="2">Hispanic or non-white</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="bmpbdsex" class="form-label badge text-bg-dark">
-                        Donor sex:</label>
-                    <select id="bmpbdsex" name="bmpbdsex" class="form-select">
-                        <option value="1" selected>Male</option>
-                        <option value="2">Female</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="gvhprhrxgp" class="form-label badge text-bg-dark">
                         GVHD prophylaxis (major):</label>
                     <select id="gvhprhrxgp" name="gvhprhrxgp" class="form-select">
@@ -385,10 +245,7 @@
                         <option value="6.0">Other</option>
                     </select>
                 </div>
-            </div>
-            <br><br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="invivotcd" class="form-label badge text-bg-dark">
                         ATG/Campath use:</label>
                     <select id="invivotcd" name="invivotcd" class="form-select">
@@ -396,7 +253,7 @@
                         <option value="1">Yes</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="hxmalig" class="form-label badge text-bg-dark">
                         History of malignancy:</label>
                     <select id="hxmalig" name="hxmalig" class="form-select">
@@ -404,29 +261,7 @@
                         <option value="1">History of malignancy</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="bcrrespr" class="form-label badge text-bg-dark">
-                        BCR/ABL molecular marker at last evaluation (ALL only):</label>
-                    <select id="bcrrespr" name="bcrrespr" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="dabotype" class="form-label badge text-bg-dark">
-                        Donor ABO type:</label>
-                    <select id="dabotype" name="dabotype" class="form-select">
-                        <option value="AB" selected>AB</option>
-                        <option value="O">O</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="abotyper" class="form-label badge text-bg-dark">
                         Recipient ABO type:</label>
                     <select id="abotyper" name="abotyper" class="form-select">
@@ -436,24 +271,146 @@
                         <option value="B">B</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="karnofraw" class="form-label badge text-bg-dark">
                         Karnofsky/Lansky performance score:</label>
-                    <input type="number" name="karnofraw" id="karnofraw" required class="form-control" value="90">
+                    <input type="number" name="karnofraw" id="karnofraw" class="form-control">
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="tbigp" class="form-label badge text-bg-dark">
+                        TBI dose groups:</label>
+                    <select id="tbigp" name="tbigp" class="form-select">
+                        <option value="0.0" selected>No TBI used</option>
+                        <option value="1.0">MAC TBI - Non-fractionated >500 cGy or fractionated >800 cGy</option>
+                        <option value="2.0">RIC TBI - Non-fractionated 200-500 cGy or fractionated 500-800 cGy</option>
+                        <option value="3.0">NMA TBI - 200 cGy or less</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="MEDHINC_CY" class="form-label badge text-bg-dark">
+                        Median household income ($) based on zipcode:</label>
+                    <input type="number" name="MEDHINC_CY" id="MEDHINC_CY" class="form-control">
                 </div>
             </div>
             <br>
             <br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="dparity1_up" class="form-label badge text-bg-dark">
-                        Donor parity:</label>
-                    <select id="dparity1_up" name="dparity1_up" class="form-select">
-                        <option value="0" selected>0</option>
-                        <option value="1">1+</option>
+            <h2>AML</h2>
+            <div class="row" style="border: 5px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="mdstfaml" class="form-label badge text-bg-dark">MDS transformed to AML:</label>
+                    <select id="mdstfaml" name="mdstfaml" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="amlrxrel" class="form-label badge text-bg-dark">Therapy related AML:</label>
+                    <select id="amlrxrel" name="amlrxrel" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="indcycle" class="form-label badge text-bg-dark">
+                        Number of induction cycles to<br>achieve CR1 (AML):</label>
+                    <select id="indcycle" name="indcycle" class="form-select">
+                        <option value="1" selected>1</option>
+                        <option value="2">N/A, disease status at HCT not in CR</option>
+                        <option value="3">3+</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="cytogeneelnt" class="form-label badge text-bg-dark">
+                        Cytogenetic ELN risk group for AML:</label>
+                    <select id="cytogeneelnt" name="cytogeneelnt" class="form-select">
+                        <option value="1" selected>Normal</option>
+                        <option value="2">Favorable</option>
+                        <option value="3">Intermediate</option>
+                        <option value="4">Poor</option>
+                        <option value="5">APL</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2>ALL</h2>
+            <div class="row" style="border: 5px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="cytogene" class="form-label badge text-bg-dark">Cytogenetic score (ALL):</label>
+                    <select id="cytogene" name="cytogene" class="form-select">
+                        <option value="1.0" selected>Normal</option>
+                        <option value="2.0">Favorable</option>
+                        <option value="3.0">Intermediate</option>
+                        <option value="4.0">Poor</option>
+                        <option value="5.0">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="philgp" class="form-label badge text-bg-dark">
+                        Ph+ (ALL):</label>
+                    <select id="philgp" name="philgp" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="allsubgp" class="form-label badge text-bg-dark">
+                        ALL immunophenotype:</label>
+                    <select id="allsubgp" name="allsubgp" class="form-select">
+                        <option value="1" selected>T-cell</option>
+                        <option value="2">B-cell</option>
+                        <option value="3">Unspecified</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="bcrrespr" class="form-label badge text-bg-dark">
+                        BCR/ABL molecular marker at last<br>evaluation (ALL only):</label>
+                    <select id="bcrrespr" name="bcrrespr" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2>MDS</h2>
+            <div class="row" style="border: 5px solid white;">
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="mdsrxrel" class="form-label badge text-bg-dark">Therapy related (MDS/MPN):</label>
+                    <select id="mdsrxrel" name="mdsrxrel" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="ipssrdx" class="form-label badge text-bg-dark">
+                        IPSS-R at diagnosis (MDS):</label>
+                    <select id="ipssrdx" name="ipssrdx" class="form-select">
+                        <option value="1" selected>Very low</option>
+                        <option value="2">Low</option>
+                        <option value="3">Intermediate</option>
+                        <option value="4">High</option>
+                        <option value="5">Very high</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="mdsdist" class="form-label badge text-bg-dark">
+                        Disease risk prior to HCT (MDS):</label>
+                    <select id="mdsdist" name="mdsdist" class="form-select">
+                        <option value="1" selected>Early</option>
+                        <option value="2">Advanced</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
+                    <label for="mdspredisp" class="form-label badge text-bg-dark">
+                        Predisposing condition (MDS/MPN):</label>
+                    <select id="mdspredisp" name="mdspredisp" class="form-select">
+                        <option value="0" selected>No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="ipssrpr" class="form-label badge text-bg-dark">
                         IPSS-R at transplant (MDS):</label>
                     <select id="ipssrpr" name="ipssrpr" class="form-select">
@@ -464,93 +421,10 @@
                         <option value="5">Very high</option>
                     </select>
                 </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="graftgp" class="form-label badge text-bg-dark">
-                        Graft source:</label>
-                    <select id="graftgp" name="graftgp" class="form-select">
-                        <option value="1" selected>Bone marrow</option>
-                        <option value="2">Peripheral blood</option>
-                    </select>
-                </div>
             </div>
             <br>
             <br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="tbigp" class="form-label badge text-bg-dark">
-                        TBI dose groups:</label>
-                    <select id="tbigp" name="tbigp" class="form-select">
-                        <option value="0.0" selected>No TBI used</option>
-                        <option value="1.0">MAC TBI - Non-fractionated >500 cGy or fractionated >800 cGy</option>
-                        <option value="2.0">RIC TBI - Non-fractionated 200-500 cGy or fractionated 500-800 cGy</option>
-                        <option value="3.0">NMA TBI - 200 cGy or less</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="MEDHINC_CY" class="form-label badge text-bg-dark">
-                        Median household income ($) based on zipcode:</label>
-                    <input type="number" name="MEDHINC_CY" id="MEDHINC_CY" required class="form-control"
-                           value="66972.52255">
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="mpn" class="form-label badge text-bg-dark">
-                        MPN:</label>
-                    <select id="mpn" name="mpn" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="DPB1_permissive_v1" class="form-label badge text-bg-dark">
-                        DPB1 permissive:</label>
-                    <select id="DPB1_permissive_v1" name="DPB1_permissive_v1" class="form-select">
-                        <option value="0" selected>No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="match_class2" class="form-label badge text-bg-dark">
-                        Matching at HLA-DQA1,-DPA1,-DRBX:</label>
-                    <input type="number" name="match_class2" id="match_class2" class="form-control" value="4">
-                </div>
-                <div class="col text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="drigp" class="form-label badge text-bg-dark">
-                        Refined disease risk index:</label>
-                    <select id="drigp" name="drigp" class="form-select">
-                        <option value="1.0" selected>Low</option>
-                        <option value="2.0">Intermediate</option>
-                        <option value="3.0">High</option>
-                        <option value="4.0">Very high</option>
-                        <option value="6.0">TBD cytogenetics</option>
-                        <option value="76.0">N/A - non-malignant indication</option>
-                        <option value="77.0">N/A - disease not classifiable</option>
-                        <option value="78.0">N/A - pediatric</option>
-                        <option value="88.0">Missing cytogenetics (MDS)</option>
-                    </select>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row justify-content-evenly margin-rows">
-                <div class="col-md-5 text-bg-info p-3 margin-sides" style="border: 3px solid white;">
-                    <label for="cytogener" class="form-label badge text-bg-dark">
-                        Unknown yet:</label>
-                    <select id="cytogener" name="cytogener" class="form-select">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="col-md-12">
+            <div class="container" style="text-align: center">
                 <button class="btn btn-dark bottom-submit" type="submit" tabindex="17">Calculate</button>
             </div>
             <br>
