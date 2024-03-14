@@ -178,6 +178,16 @@
                     </select>
                 </div>
                 <div class="col-md-3 text-bg-info p-3">
+                    <label for="drigp" class="form-label badge text-bg-dark">Refined disease risk index:</label>
+                    <select id="drigp" name="disease" class="form-select">
+                        <option value="1.0" selected>Low</option>
+                        <option value="2.0">Intermediate</option>
+                        <option value="3.0">High</option>
+                        <option value="4.0">Very high</option>
+                        <option value="6.0">TBD cytogenetics</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-bg-info p-3">
                     <label for="rcmvpr" class="form-label badge text-bg-dark">Recipient CMV serostatus, pre-HCT:</label>
                     <select id="rcmvpr" name="rcmvpr" class="form-select">
                         <option value="Negative" selected>Negative</option>
@@ -434,7 +444,7 @@
         </form>
         {% if result %}
             <div class="row justify-content-center">
-                <div class="col-md-5 text-bg-info p-3 margin-sides" style="border: 3px solid white;">
+                <div class="col-md-5 text-bg-info p-3 margin-sides" style="border: 3px solid white; text-align: center">
                     <label for="output" class="form-label badge text-bg-dark" style="font-size: 16px;">
                         Outputted dictionary:</label>
                     <br>

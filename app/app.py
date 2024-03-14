@@ -58,22 +58,22 @@ def calculate():
     funghxpr = request.form.get("funghxpr")
     condclas = request.form.get("condclas")
     indcycle = request.form.get("indcycle")
-    age = request.form.get("age")
-    indxtx = request.form.get("indxtx")
+    age = request.form.get("age", None)
+    indxtx = request.form.get("indxtx", None)
     cytogeneelnt = request.form.get("cytogeneelnt")
     numhires8_1 = request.form.get("numhires8_1")
     himatchdqb1_1 = request.form.get("himatchdqb1_1")
     himatchdpb1_1 = request.form.get("himatchdpb1_1")
     dcmvpr = request.form.get("dcmvpr")
     racegp = request.form.get("racegp")
-    coorgscore = request.form.get("coorgscore")
+    coorgscore = request.form.get("coorgscore", None)
     philgp = request.form.get("philgp")
     allsubgp = request.form.get("allsubgp")
     ipssrdx = request.form.get("ipssrdx")
     mdsdist = request.form.get("mdsdist")
     mdspredisp = request.form.get("mdspredisp")
     related = request.form.get("related")
-    urdbmpbdage_up = request.form.get("urdbmpbdage_up")
+    urdbmpbdage_up = request.form.get("urdbmpbdage_up", None)
     urdbmpbdrace = request.form.get("urdbmpbdrace")
     bmpbdsex = request.form.get("bmpbdsex")
     gvhprhrxgp = request.form.get("gvhprhrxgp")
@@ -82,17 +82,15 @@ def calculate():
     bcrrespr = request.form.get("bcrrespr")
     dabotype = request.form.get("dabotype")
     abotyper = request.form.get("abotyper")
-    karnofraw = request.form.get("karnofraw")
+    karnofraw = request.form.get("karnofraw", None)
     dparity1_up = request.form.get("dparity1_up")
     ipssrpr = request.form.get("ipssrpr")
     graftgp = request.form.get("graftgp")
     tbigp = request.form.get("tbigp")
-    MEDHINC_CY = request.form.get("MEDHINC_CY")
-    mpn = request.form.get("mpn")
+    MEDHINC_CY = request.form.get("MEDHINC_CY", None)
     DPB1_permissive_v1 = request.form.get("DPB1_permissive_v1")
     match_class2 = request.form.get("match_class2", None)
     drigp = request.form.get("drigp")
-    cytogener = request.form.get("cytogener")
 
     # Adjustments of the parameters
     cytogene = "cytogene_" + str(cytogene)
@@ -101,7 +99,6 @@ def calculate():
     cytogeneelnt = "cytogeneelnt_" + str(cytogeneelnt)
     tbigp = "tbigp_" + str(tbigp)
     drigp = "drigp_" + str(drigp)
-    cytogener = "cytogener_" + str(cytogener)
 
     drcmvpr = "drcmvpr_"
     if rcmvpr == "Positive" and dcmvpr == "Positive":
@@ -175,17 +172,19 @@ def calculate():
     df["mdstfaml"] = int(mdstfaml)
     df["amlrxrel"] = int(amlrxrel)
     df["sex"] = int(sex)
-    df["age"] = float(age)
+    if age:
+        df["age"] = float(age)
     df["mdsrxrel"] = int(mdsrxrel)
     df["venthxpr"] = int(venthxpr)
     df["funghxpr"] = int(funghxpr)
     df["indcycle"] = int(indcycle)
-    df["indxtx"] = float(indxtx)
+    if indxtx:
+        df["indxtx"] = float(indxtx)
     df["numhires8_1"] = int(numhires8)
     df["himatchdqb1_1"] = int(himatchdqb1_1)
     df["himatchdpb1_1"] = int(himatchdpb1_1)
-    df["coorgscore"] = int(coorgscore)
-    df["mpn"] = int(mpn)
+    if coorgscore:
+        df["coorgscore"] = int(coorgscore)
     df["philgp"] = int(philgp)
     df["ipssrdx"] = int(ipssrdx)
     df["ipssrpr"] = int(ipssrpr)
@@ -193,10 +192,13 @@ def calculate():
     df["invivotcd"] = int(invivotcd)
     df["hxmalig"] = int(hxmalig)
     df["bcrrespr"] = int(bcrrespr)
-    df["karnofraw"] = int(karnofraw)
+    if karnofraw:
+        df["karnofraw"] = int(karnofraw)
     df["graftgp"] = int(graftgp)
-    df["MEDHINC_CY"] = float(MEDHINC_CY)
-    df["urdbmpbdage_up"] = float(urdbmpbdage_up)
+    if MEDHINC_CY:
+        df["MEDHINC_CY"] = float(MEDHINC_CY)
+    if urdbmpbdage_up:
+        df["urdbmpbdage_up"] = float(urdbmpbdage_up)
     df["dparity1_up"] = int(dparity1_up)
     df["match_class2"] = int(match_class2)
     df["DPB1_permissive_v1"] = int(DPB1_permissive_v1)
@@ -228,10 +230,10 @@ def calculate():
     df["drigp_3.0"] = 1 if drigp == "drigp_3.0" else 0
     df["drigp_4.0"] = 1 if drigp == "drigp_4.0" else 0
     df["drigp_6.0"] = 1 if drigp == "drigp_6.0" else 0
-    df["drigp_76.0"] = 1 if drigp == "drigp_76.0" else 0
-    df["drigp_77.0"] = 1 if drigp == "drigp_77.0" else 0
-    df["drigp_78.0"] = 1 if drigp == "drigp_78.0" else 0
-    df["drigp_88.0"] = 1 if drigp == "drigp_88.0" else 0
+    # df["drigp_76.0"] = 1 if drigp == "drigp_76.0" else 0
+    # df["drigp_77.0"] = 1 if drigp == "drigp_77.0" else 0
+    # df["drigp_78.0"] = 1 if drigp == "drigp_78.0" else 0
+    # df["drigp_88.0"] = 1 if drigp == "drigp_88.0" else 0
     df["drabomatch_dots_0.0"] = 1 if drabomatch_dots == "drabomatch_dots_0.0" else 0
     df["drabomatch_dots_1.0"] = 1 if drabomatch_dots == "drabomatch_dots_1.0" else 0
     df["drabomatch_dots_2.0"] = 1 if drabomatch_dots == "drabomatch_dots_2.0" else 0
@@ -259,11 +261,6 @@ def calculate():
     df["drcmvpr_1.0"] = 1 if drcmvpr == "drcmvpr_1.0" else 0
     df["drcmvpr_2.0"] = 1 if drcmvpr == "drcmvpr_2.0" else 0
     df["drcmvpr_3.0"] = 1 if drcmvpr == "drcmvpr_3.0" else 0
-    df["cytogener_1"] = 1 if cytogener == "cytogener_1" else 0
-    df["cytogener_2"] = 1 if cytogener == "cytogener_2" else 0
-    df["cytogener_3"] = 1 if cytogener == "cytogener_3" else 0
-    df["cytogener_4"] = 1 if cytogener == "cytogener_4" else 0
-    df["cytogener_5"] = 1 if cytogener == "cytogener_5" else 0
     df["cytogeneelnt_1"] = 1 if cytogeneelnt == "cytogeneelnt_1" else 0
     df["cytogeneelnt_2"] = 1 if cytogeneelnt == "cytogeneelnt_2" else 0
     df["cytogeneelnt_3"] = 1 if cytogeneelnt == "cytogeneelnt_3" else 0
