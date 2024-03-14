@@ -283,7 +283,7 @@ def calculate():
     # Save the df to a temporary file
     current_time = time.time()
     created_df_path = f"static/temp_files/{current_time}.csv"
-    df.to_csv(created_df_path, index=False)
+    df.to_csv(created_df_path, index=False) 
 
     # Predict on the data
     result = predict(created_df_path)
