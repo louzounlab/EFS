@@ -24,8 +24,12 @@ def delete_old_files():
     for directory_path in directories_path:
         # Iterate over the files in the directory
         for file in os.listdir(directory_path):
-            file_time = float(file.split(".")[0])
-            if current_time - file_time > 3600:
+            try:
+                file_time = float(file.split(".")[0])
+                if current_time - file_time > 3600:
+                    os.remove(join(directory_path, file))
+                    print("Deleted:", join(directory_path, file))
+            except Exception:
                 os.remove(join(directory_path, file))
                 print("Deleted:", join(directory_path, file))
 
