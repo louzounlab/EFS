@@ -437,26 +437,110 @@
                 <button class="btn btn-dark bottom-submit" type="submit" tabindex="17">Calculate</button>
             </div>
             <br>
-            <br>
-            <br>
-            <br>
         </form>
         {% if result %}
-            <div class="row justify-content-center">
-                <div class="col-md-5 p-3 margin-sides" style="text-align: center; background-color: rgb(116, 137, 164);">
+            <div class="d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh;">
+                <div class="text-center mb-3" style="background-color: rgb(116, 137, 164); padding: 20px; border-radius: 10px;">
                     <label for="output" class="form-label badge text-bg-dark" style="font-size: 16px;">
-                        Outputted dictionary:</label>
-                    <br>
-                    <br>
-                    <a href="{{ result }}" id="output" download="output" class="form-label badge text-bg-light"
-                       style="font-size: 16px;">
-                        <b>Download Results</b></a>
+                        Outputted dictionary:
+                    </label>
+                    <br><br>
+                    <a href="{{ result }}" id="output" download="output" class="form-label badge text-bg-light" style="font-size: 16px;">
+                        <b>Download Results</b>
+                    </a>
                 </div>
+                <div id="sections" class="w-100 d-flex flex-column align-items-center"></div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
+            <script>
+                const resultPath = "{{ result }}";
+
+                // Function to fetch JSON data from the file
+                async function fetchJsonData(filePath) {
+                    const response = await fetch(filePath);
+                    const data = await response.json();
+                    return data;
+                }
+
+                const titles = [
+                    { key: 'dead1y', display: 'death' },
+                    { key: 'gvhd1y', display: 'gvhd' },
+                    { key: 'rej1y', display: 'rejection' },
+                    { key: 'rel1y', display: 'relapse' },
+                    { key: 'efs1y', display: 'efs' }
+                ];
+
+                function createSections() {
+                    const sectionsContainer = document.getElementById('sections');
+                    sectionsContainer.innerHTML = '';
+                    titles.forEach((titleObj, index) => {
+                        const section = document.createElement('div');
+                        section.classList.add('section', 'text-center', 'p-3', 'my-3', 'bg-light', 'rounded');
+                        section.style.width = '80%';
+                        section.innerHTML = `
+                            <h2>${titleObj.display}</h2>
+                            <div class="result">
+                                <p>Your percentile:</p>
+                                <canvas id="percentileCanvas${index}" width="300" height="50"></canvas>
+                                <p id="percentileText${index}"></p>
+                            </div>
+                            <div class="result">
+                                <p>Your risk:</p>
+                                <canvas id="riskCanvas${index}" width="300" height="50"></canvas>
+                                <p id="riskText${index}"></p>
+                            </div>
+                        `;
+                        sectionsContainer.appendChild(section);
+                    });
+                }
+
+                async function showSectionsAndCalculate() {
+                    createSections();
+                    const result = await fetchJsonData(resultPath);
+                    generateRiskAndPercentile(result);
+                }
+
+                function generateRiskAndPercentile(data) {
+                    titles.forEach((titleObj, index) => {
+                        const entry = data[titleObj.key];
+                        const risk = entry.bin_risk;
+                        const percentileRange = entry.percentile;
+
+                        drawBar(`percentileCanvas${index}`, parsePercentileRange(percentileRange) / 100, `percentileText${index}`, `You are in the ${percentileRange} percentile`);
+                        drawBar(`riskCanvas${index}`, risk, `riskText${index}`, `You have a risk of ${(risk * 100).toFixed(2)}% `);
+                    });
+                }
+
+                function parsePercentileRange(percentileRange) {
+                    const [min, max] = percentileRange.split('-').map(Number);
+                    return (min + max) / 2;
+                }
+
+                function drawBar(canvasId, value, textId, text) {
+                    const canvas = document.getElementById(canvasId);
+                    const ctx = canvas.getContext('2d');
+                    const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+
+                    gradient.addColorStop(0, 'green');
+                    gradient.addColorStop(0.5, 'yellow');
+                    gradient.addColorStop(1, 'red');
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Draw the indicator line
+                    ctx.fillStyle = 'black';
+                    ctx.fillRect(value * canvas.width - 1, 0, 2, canvas.height);
+
+                    document.getElementById(textId).innerText = text;
+                }
+
+                // Call the function to show sections and calculate values after the page loads
+                document.addEventListener('DOMContentLoaded', showSectionsAndCalculate);
+            </script>
         {% endif %}
+
+
+
     </div>
 {% endblock %}
